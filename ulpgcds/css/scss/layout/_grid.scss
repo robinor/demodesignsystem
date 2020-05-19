@@ -1,0 +1,131 @@
+/* ------------------------------- ateigh.com ------------------------------- 
+ *
+ * Grids styles for #{$theme-name}
+ *
+ * ------------------------------- ateigh.com -------------------------------
+ */
+
+
+.row {
+  position: relative;
+  width: 100%;
+}
+[class*='col-'] {
+    float: left;
+    min-height: 0.125rem;
+    width: 100%;
+    min-height: 1px; 
+    &:first-child{
+        padding-left:0;
+        margin-left:0;
+    }
+    &:last-child{
+        padding-right:0;
+        margin-right:0;
+    }
+}   
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.wrapper {      
+    width: 100%;
+    max-width: $grid-max-width;                   
+    @include mq('m-screen',min){         
+        max-width: $grid-max-width-m;  
+        @for $i from 1 through $grid-columns {      
+           .col-#{$i} {  
+                   width: calc(100% / #{$grid-columns} * #{$i} - #{$grid-gutter});
+                   margin:0 $grid-gutter/2 0 $grid-gutter/2;
+                   float:left;
+               }            
+           }           
+    }
+}
+
+.ulpgcds-grid-container,.ulpgcds-grid {    
+    margin:0 auto;
+    max-width:$grid-max-width-m;
+    width: 100%;
+    .row {
+        position: relative;
+        width: 100%;
+      
+        [class*='col-'] {
+            float: left;
+            min-height: 0.125rem;
+            width: 100%;
+            min-height: 1px; 
+            &:first-child{
+                padding-left:0;
+            }
+            &:last-child{
+                padding-right:0;
+            }
+        }   
+        &:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+
+        @include mq('l-screen',min){         
+            max-width: $grid-max-width;
+            @for $i from 1 through $grid-columns {      
+               .col-#{$i} {  
+                       width: calc(100% / #{$grid-columns} * #{$i} - #{$grid-gutter/2});
+                       margin:0 $grid-gutter/2 0 $grid-gutter/2;
+                       float:left;
+                       &:first-child{
+                            padding-left:0;
+                            margin-left:0;
+                        }
+                        &:last-child{
+                            padding-right:0;
+                            margin-right:0;
+                        }
+                   }            
+               }   
+            .col-4 {  
+                width: calc(100% / #{$grid-columns} * 4 - 43px);   
+            }
+        }
+        @include mq('m-screen',min){         
+            max-width: $grid-max-width;
+            @for $i from 1 through $grid-columns {      
+               .col-m-#{$i} {  
+                       width: calc(100% / #{$grid-columns} * #{$i} - #{$grid-gutter/2});
+                       margin:0 $grid-gutter/2 0 $grid-gutter/2;
+                       float:left;
+                       &:first-child{
+                            padding-left:0;
+                            margin-left:0;
+                        }
+                        &:last-child{
+                            padding-right:0;
+                            margin-right:0;
+                        }
+                   }            
+               }           
+        }
+        @include mq('s-screen',max){         
+            max-width: $grid-max-width;
+            @for $i from 1 through $grid-columns {      
+               .col-s-#{$i} {  
+                       width: calc(100% / #{$grid-columns} * #{$i} - #{$grid-gutter/2});
+                       margin:0 $grid-gutter/2 0 $grid-gutter/2;
+                       float:left;
+                       &:first-child{
+                            padding-left:0;
+                            margin-left:0;
+                        }
+                        &:last-child{
+                            padding-right:0;
+                            margin-right:0;
+                        }
+                   }            
+               }           
+        }
+    } 
+}

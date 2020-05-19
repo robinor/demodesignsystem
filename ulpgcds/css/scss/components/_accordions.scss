@@ -1,0 +1,138 @@
+/* ------------------------------- ateigh.com ------------------------------- 
+ *
+ * Accordions styles for #{$theme-name}
+ *
+ * ------------------------------- ateigh.com -------------------------------
+ */
+
+.ulpgcds-accordion {
+    margin: 0;
+    padding: 0;
+    button{
+        background:none;
+        border:0;
+        color:$color-blue;
+        cursor:pointer;
+        padding-left:$spacing-m;        
+        display: inline-block;
+        width: 100%;
+        text-align: left;
+        line-height:$line-height-m;
+        font-size:$font-size-m;
+        &[aria-expanded="true"]{        
+            .ulpgcds-accordion__icon{        
+                @extend .ulpgcds-icon;
+                @extend .ulpgcds-icon-less;
+            }
+        }
+        &[aria-expanded="false"]{
+            .ulpgcds-accordion__icon{ 
+                @extend .ulpgcds-icon;                
+                @extend .ulpgcds-icon-more;
+            } 
+        }
+        .ulpgcds-accordion__icon{
+            margin-right:$layout-xxs;
+        }     
+        &:hover{
+            color:$color-orange;
+            + div{                
+                border-color:$color-orange;         
+            }
+        }
+        &:active{
+            color:$color-orange-dark;   
+            + div{                
+                border-color:$color-orange-dark;         
+            }
+        }
+        
+    }
+    h3 {
+        font-weight:$medium;
+        color:$color-blue;
+        font-size:$font-size-m;    
+        line-height:$line-height-m;
+        padding-bottom:$spacing-s;
+        padding-top:$spacing-s;
+        + h3{
+            margin-top:$layout-l;
+        }
+        &:hover + .ulpgcds-accordion__panel{
+            @include transition(0.2s ease-in-out);
+            border-color:$color-orange;
+        }
+        &:hover
+            + div{
+                border-color:$color-orange;               
+        }
+        &:active{              
+            + div{                
+                border-color:$color-orange-dark;         
+            }
+        }
+    }
+    
+    &.focus {
+        border:0;
+        outline:none;
+        h3{
+            
+        }
+    }
+  button {
+    
+    ::-moz-focus-inner{
+         border: 0;
+    }
+  }
+  &__title {
+    display: block;
+    pointer-events: none;    
+    outline: none;
+  }
+  &__icon {
+   
+    &:active{
+        @extend .ulpgcds-icon-less;
+    }
+  }
+  &__panel{
+    margin: 0;
+    padding: 0;    
+    border-bottom:2px solid $color-blue;    
+    transition: all $animation-time $animation-type;    
+  }
+  .border-hover{          
+    .ulpgcds-accordion__panel{        
+        border-color:$color-orange;    
+        &:active, &:focus{
+             border-color:$color-orange-dark;    
+        }
+    }
+    &:active{
+        .ulpgcds-accordion__panel{
+            border-color:$color-orange-dark;    
+        }
+    }
+  }
+  .border-click{          
+    .ulpgcds-accordion__panel{
+        border-color:$color-orange-dark;        
+    } 
+  }
+  &__content{
+      padding: 0 $spacing-xl $spacing-s $spacing-xxl;      
+      visibility:visible;
+      @include opacity(1);      
+      @include transition(all 1s $animation-type);
+      &[aria-hidden="true"] { 
+        display: none;
+        visibility:hidden;
+        @include opacity(0);
+        @include transition(all 1s $animation-type);   
+      }
+  }
+
+}
+

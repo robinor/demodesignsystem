@@ -1,0 +1,25 @@
+/* ------------------------------- ateigh.com ------------------------------- 
+ *
+ * Content styles for #{$theme-name}
+ *
+ * ------------------------------- ateigh.com -------------------------------
+ */
+
+.main-content-web{
+    padding-top:$header-height;
+    clear:both;    
+    @include wrapper;
+    .main-section{
+        width:75%;
+        float:left;
+        @include mq('s-screen',max){
+            width:90%;            
+            margin:0 auto;
+            float:none;
+            &.content-wide{
+                width:90%;
+            }
+        }
+    }
+}
+
